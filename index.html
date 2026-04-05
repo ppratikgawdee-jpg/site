@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velmora — Luxury Perfumes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">VELMORA</a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="/cart/" class="icon-btn cart-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Search fragrances..." id="searchInput" />
+      <button onclick="performSearch()">Search</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/shop/">Shop</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <!-- Decorative gold lines -->
+      <div class="hero-line hero-line--1"></div>
+      <div class="hero-line hero-line--2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">The Art of Fine Fragrance</p>
+      <h1 class="hero-title fade-up delay-1">
+        Wear Your<br /><em>Signature</em>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">
+        Curated luxury perfumes from ₹400 — crafted for those<br class="hide-mobile" /> who define elegance on their own terms.
+      </p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="/shop/" class="btn btn--gold">Explore Collection</a>
+        <a href="#featured" class="btn btn--outline">Our Story</a>
+      </div>
+      <div class="hero-scroll fade-up delay-4">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-inner">
+        <span>Est.</span>
+        <strong>2024</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE STRIP ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Woody &nbsp;•&nbsp; Floral &nbsp;•&nbsp; Fresh &nbsp;•&nbsp; Oriental &nbsp;•&nbsp; Aquatic &nbsp;•&nbsp; Musk &nbsp;•&nbsp;</span>
+      <span>Woody &nbsp;•&nbsp; Floral &nbsp;•&nbsp; Fresh &nbsp;•&nbsp; Oriental &nbsp;•&nbsp; Aquatic &nbsp;•&nbsp; Musk &nbsp;•&nbsp;</span>
+      <span>Woody &nbsp;•&nbsp; Floral &nbsp;•&nbsp; Fresh &nbsp;•&nbsp; Oriental &nbsp;•&nbsp; Aquatic &nbsp;•&nbsp; Musk &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Curated For You</p>
+        <h2 class="section-title">Featured Collection</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="product-grid" id="featuredGrid">
+        <!-- Injected by JS -->
+      </div>
+
+      <div class="section-footer">
+        <a href="/shop/" class="btn btn--gold">View All Fragrances</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRAND STORY ===== -->
+  <section class="about-section" id="about">
+    <div class="about-image">
+      <div class="about-img-placeholder">
+        <div class="about-img-decor"></div>
+      </div>
+    </div>
+    <div class="about-content">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Born from Passion,<br /><em>Crafted with Purpose</em></h2>
+      <div class="gold-divider" style="margin: 1.5rem 0;"></div>
+      <p class="about-text">
+        Velmora began as a dream — to bring world-class fragrances to India without compromise. Every bottle carries layers of carefully sourced notes, from the sun-drenched groves of Grasse to the rich oud markets of the Middle East.
+      </p>
+      <p class="about-text">
+        We believe luxury is a feeling, not a price tag. That's why our curated collection starts at just ₹400 — because everyone deserves to wear something extraordinary.
+      </p>
+      <div class="about-stats">
+        <div class="stat">
+          <strong>50+</strong>
+          <span>Fragrances</span>
+        </div>
+        <div class="stat">
+          <strong>3</strong>
+          <span>Collections</span>
+        </div>
+        <div class="stat">
+          <strong>10K+</strong>
+          <span>Happy Customers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Explore by Mood</p>
+        <h2 class="section-title">Find Your Fragrance</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="categories-grid">
+        <a href="/shop/?gender=men" class="cat-card cat-card--men">
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>For Him</h3>
+            <p>Bold. Confident. Timeless.</p>
+            <span class="cat-link">Explore →</span>
+          </div>
+        </a>
+        <a href="/shop/?gender=women" class="cat-card cat-card--women">
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>For Her</h3>
+            <p>Graceful. Magnetic. Unforgettable.</p>
+            <span class="cat-link">Explore →</span>
+          </div>
+        </a>
+        <a href="/shop/?gender=unisex" class="cat-card cat-card--unisex">
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>Unisex</h3>
+            <p>Boundless. Free. Unique.</p>
+            <span class="cat-link">Explore →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BESTSELLERS STRIP ===== -->
+  <section class="bestsellers-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Most Loved</p>
+        <h2 class="section-title">Bestsellers</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="bestsellers-slider" id="bestsellersSlider">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What They Say</p>
+        <h2 class="section-title">Voices of Velmora</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Absolute luxury at an incredible price. The Noir Oud is my signature now — I get compliments everywhere."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <strong>Arjun Mehta</strong>
+              <span>Mumbai</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"I've tried perfumes from Paris boutiques that don't smell as good as Velmora's Rose Elixir. Genuinely impressed."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">P</div>
+            <div>
+              <strong>Priya Sharma</strong>
+              <span>Delhi</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"The packaging is stunning, the scent lasts all day, and the price is unbelievably fair. Velmora for life."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <strong>Rahul Verma</strong>
+              <span>Bangalore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <p class="section-eyebrow" style="color: var(--gold-light);">Exclusive Access</p>
+        <h2>Join the Inner Circle</h2>
+        <p>Be the first to discover new arrivals, limited editions and members-only offers.</p>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit" class="btn btn--gold">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">VELMORA</div>
+          <p>The art of fine fragrance, made accessible. Luxury without compromise.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop/">Shop</a></li>
+            <li><a href="/shop/?gender=men">For Him</a></li>
+            <li><a href="/shop/?gender=women">For Her</a></li>
+            <li><a href="/shop/?gender=unisex">Unisex</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="contact-list">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hello@velmora.in
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.4 2 2 0 0 1 3.9 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22.9 17z"/></svg>
+              +91 98765 43210
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Mumbai, Maharashtra, India
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Velmora. All rights reserved. Crafted with care in India.</p>
+        <div class="payment-icons">
+          <span>UPI</span><span>VISA</span><span>MC</span><span>COD</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
