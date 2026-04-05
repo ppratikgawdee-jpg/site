@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Velmora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">VELMORA</a>
+      <ul class="nav-links">
+        <li><a href="/cart/">← Back to Cart</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/cart/" class="icon-btn cart-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CHECKOUT -->
+  <section class="checkout-page">
+    <div class="container">
+
+      <!-- STEPS -->
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--black);font-weight:600;">1</div>
+          <span style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)">Delivery</span>
+        </div>
+        <div style="width:40px;height:1px;background:var(--border);"></div>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-dim)">2</div>
+          <span style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim)">Payment</span>
+        </div>
+        <div style="width:40px;height:1px;background:var(--border);"></div>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-dim)">3</div>
+          <span style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim)">Confirm</span>
+        </div>
+      </div>
+
+      <div class="checkout-grid">
+
+        <!-- FORM SECTION -->
+        <div class="checkout-form-section">
+          <h2>Delivery Details</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" id="firstName" placeholder="Arjun" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="lastName" placeholder="Mehta" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="arjun@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" required />
+          </div>
+
+          <div class="form-group">
+            <label>Address Line 1</label>
+            <input type="text" id="address1" placeholder="House no., Street, Colony" required />
+          </div>
+
+          <div class="form-group">
+            <label>Address Line 2 (Optional)</label>
+            <input type="text" id="address2" placeholder="Landmark, Area" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" id="city" placeholder="Mumbai" required />
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" id="state" placeholder="Maharashtra" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>PIN Code</label>
+              <input type="text" id="pincode" placeholder="400001" required maxlength="6" />
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" value="India" readonly style="opacity:0.6;cursor:not-allowed" />
+            </div>
+          </div>
+
+          <!-- PAYMENT -->
+          <div class="payment-section">
+            <h3>Payment Method</h3>
+            <div class="payment-options">
+
+              <div class="payment-option selected" id="pay-upi" onclick="selectPayment('upi')">
+                <div class="radio-visual"></div>
+                <input type="radio" name="payment" value="upi" checked />
+                <div class="payment-option-label">
+                  UPI
+                  <small>Pay via GPay, PhonePe, Paytm or any UPI app</small>
+                </div>
+                <span style="font-size:0.65rem;color:var(--gold);margin-left:auto;letter-spacing:0.08em">Instant</span>
+              </div>
+
+              <div class="payment-option" id="pay-card" onclick="selectPayment('card')">
+                <div class="radio-visual"></div>
+                <input type="radio" name="payment" value="card" />
+                <div class="payment-option-label">
+                  Credit / Debit Card
+                  <small>Visa, Mastercard, Amex, RuPay</small>
+                </div>
+              </div>
+
+              <div class="payment-option" id="pay-cod" onclick="selectPayment('cod')">
+                <div class="radio-visual"></div>
+                <input type="radio" name="payment" value="cod" />
+                <div class="payment-option-label">
+                  Cash on Delivery
+                  <small>Pay when your order arrives</small>
+                </div>
+                <span style="font-size:0.65rem;color:var(--text-dim);margin-left:auto;letter-spacing:0.08em">+₹30</span>
+              </div>
+
+            </div>
+
+            <!-- Card fields (shown when card selected) -->
+            <div id="cardFields" style="display:none;margin-top:1.5rem;">
+              <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber"
+                  oninput="formatCard(this)" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Expiry (MM/YY)</label>
+                  <input type="text" placeholder="12/26" maxlength="5" />
+                </div>
+                <div class="form-group">
+                  <label>CVV</label>
+                  <input type="password" placeholder="•••" maxlength="4" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Name on Card</label>
+                <input type="text" placeholder="ARJUN MEHTA" />
+              </div>
+            </div>
+
+            <!-- UPI field -->
+            <div id="upiField" style="margin-top:1.5rem;">
+              <div class="form-group">
+                <label>UPI ID</label>
+                <input type="text" placeholder="yourname@upi" id="upiId" />
+              </div>
+              <div style="display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap;">
+                <button class="btn btn--dark" style="padding:0.5rem 1rem;font-size:0.65rem" onclick="selectUpiApp('gpay')">GPay</button>
+                <button class="btn btn--dark" style="padding:0.5rem 1rem;font-size:0.65rem" onclick="selectUpiApp('phonepe')">PhonePe</button>
+                <button class="btn btn--dark" style="padding:0.5rem 1rem;font-size:0.65rem" onclick="selectUpiApp('paytm')">Paytm</button>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="btn btn--gold" style="width:100%;margin-top:2.5rem;padding:1.1rem;" onclick="placeOrder()">
+            Place Order
+          </button>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="checkout-summary">
+          <h3 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:300;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)">Order Summary</h3>
+          <div id="checkoutItems"></div>
+          <div id="checkoutTotals"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div id="successModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;display:none;align-items:center;justify-content:center;">
+    <div style="background:var(--black-soft);border:1px solid var(--gold);padding:3rem;max-width:480px;width:90%;text-align:center;">
+      <div style="font-size:2rem;color:var(--gold);margin-bottom:1rem;">✦</div>
+      <h2 style="font-family:var(--font-serif);font-size:2rem;font-weight:300;margin-bottom:0.75rem">Order Placed!</h2>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:2rem">Thank you for your order. You will receive a confirmation shortly.</p>
+      <div style="background:var(--black-mid);border:1px solid var(--border);padding:1rem;margin-bottom:2rem;">
+        <p style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.3rem">Order ID</p>
+        <p style="font-family:var(--font-serif);font-size:1.3rem;color:var(--gold)" id="orderId">#VLM-000000</p>
+      </div>
+      <a href="/shop/" class="btn btn--gold" style="width:100%">Continue Shopping</a>
+    </div>
+  </div>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

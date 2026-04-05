@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Velmora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">VELMORA</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/" class="active">Shop</a></li>
+        <li><a href="index.html#about">Our Story</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="/cart/" class="icon-btn cart-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Search fragrances..." id="searchInput" />
+      <button onclick="performSearch()">Search</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/shop/">Shop</a></li>
+      <li><a href="index.html#about">Our Story</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- SHOP HERO -->
+  <section class="shop-hero">
+    <div class="container">
+      <p class="section-eyebrow">The Collection</p>
+      <h1 class="section-title">All Fragrances</h1>
+      <div class="gold-divider" style="margin: 1rem auto 0;"></div>
+    </div>
+  </section>
+
+  <!-- SHOP CONTENT -->
+  <div class="container">
+    <div class="shop-layout">
+
+      <!-- FILTERS SIDEBAR -->
+      <aside class="shop-filters">
+
+        <div class="filter-group">
+          <h4>Gender</h4>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" name="gender" value="men" onchange="applyFilters()" /> Men
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="gender" value="women" onchange="applyFilters()" /> Women
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="gender" value="unisex" onchange="applyFilters()" /> Unisex
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Fragrance Type</h4>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" name="type" value="woody" onchange="applyFilters()" /> Woody
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="type" value="floral" onchange="applyFilters()" /> Floral
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="type" value="fresh" onchange="applyFilters()" /> Fresh
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <div class="price-range-inputs">
+            <input type="number" id="minPrice" placeholder="₹400" min="400" max="1500" value="400" />
+            <span>–</span>
+            <input type="number" id="maxPrice" placeholder="₹1500" min="400" max="1500" value="1500" />
+          </div>
+          <button class="btn btn--dark apply-filter-btn" onclick="applyFilters()">Apply</button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Badge</h4>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" name="badge" value="Best Seller" onchange="applyFilters()" /> Best Sellers
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="badge" value="New" onchange="applyFilters()" /> New Arrivals
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn--outline" style="width:100%" onclick="resetFilters()">Clear Filters</button>
+      </aside>
+
+      <!-- PRODUCTS MAIN -->
+      <main class="shop-main">
+        <div class="shop-toolbar">
+          <p class="shop-count" id="shopCount">Showing 12 fragrances</p>
+          <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+            <option value="default">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+        <div class="product-grid" id="shopGrid"></div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" style="margin-top: 5rem;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>© 2024 Velmora. All rights reserved.</p>
+        <a href="/" style="color: var(--gold); font-size:0.75rem; letter-spacing:0.1em;">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/shop.js"></script>
+</body>
+</html>
